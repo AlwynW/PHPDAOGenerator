@@ -1,11 +1,21 @@
 <?php
-	require_once('include_dao.php');
+
 /**
  * DAOFactory
  * @author: http://phpdao.com
  * @date: ${date}
  */
-class DAOFactory {
+class DAOFactory{
+
+   public function __construct(){
+        $this->load->database();
+
+        define('DB_HOST', ${host});
+        define('DB_NAME', ${database});
+        define('DB_USER', ${username});
+        define('DB_PASS', ${password});
+    }
+
 	${content}
 }
 ?>

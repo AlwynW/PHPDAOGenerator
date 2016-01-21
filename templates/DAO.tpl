@@ -11,7 +11,7 @@ class ${dao_clazz_name}DAO implements ${idao_clazz_name}DAO{
 	 * Get Domain object by primry key
 	 *
 	 * @param String $id primary key
-	 * @return ${domain_clazz_name} 
+	 * @return ${dao_clazz_name} 
 	 */
 	public function load($id){
 		$sql = 'SELECT * FROM ${table_name} WHERE ${pk} = ?';
