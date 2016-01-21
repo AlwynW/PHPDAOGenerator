@@ -7,3 +7,19 @@ Then follow instructions below to use my version.
 3. Visit the equivalent webaddress via your favourite browser
 4. Fill in the required fields
 5. Generate some DAOs!
+
+Usage CodeIgniter version:
+
+1. Load model
+
+$this->load->model('DAOFactory');
+
+2. Load the necessary DTO/DAO file (depend on which database you want to approach)
+
+$this->DAOFactory->load('TableName');
+or 
+$this->DAOFactory->loadAll($arrayOfTableNames);
+
+3. Use DAOFactory like you would normally do
+
+$this->DAOFactory->getTableNameDAO();
