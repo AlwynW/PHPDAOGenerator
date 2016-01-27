@@ -206,10 +206,13 @@ function generateDAOExtObjects($ret){
 				if(isColumnTypeNumber($tab[$j][1])){
 					$parameterSetter2 .= "Number";
 				}
-				$queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value){
+				$queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value, \$single = false){
 		\$sql = 'SELECT * FROM ".$tableName." WHERE ".$tab[$j][0]." = ?';
 		\$sqlQuery = new SqlQuery(\$sql);
 		\$sqlQuery->set".$parameterSetter2."(\$value);
+		if (\$single === true)
+			return \$this->getRow(\$sqlQuery);
+		else
 		return \$this->getList(\$sqlQuery);
 	}\n\n";
 				$deleteByField .= "	public function deleteBy".getClazzName($tab[$j][0])."(\$value){
@@ -281,11 +284,14 @@ function generateDAOObjects($ret){
                 if($isNumber){
                     $parameterSetter2 .= "Number";
                 }
-                $queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value){
+                $queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value, \$single = false){
 		\$sql = 'SELECT * FROM ".$tableName." WHERE ".$tab[$j][0]." = ?';
 		\$sqlQuery = new SqlQuery(\$sql);
 		\$sqlQuery->set".$parameterSetter2."(\$value);
-		return \$this->getList(\$sqlQuery);
+		if (\$single === true)
+			return \$this->getRow(\$sqlQuery);
+		else
+			return \$this->getList(\$sqlQuery);
 	}\n\n";
                 $deleteByField .= "	public function deleteBy".getClazzName($tab[$j][0])."(\$value){
 		\$sql = 'DELETE FROM ".$tableName." WHERE ".$tab[$j][0]." = ?';
@@ -311,10 +317,13 @@ function generateDAOObjects($ret){
 				if(isColumnTypeNumber($tab[$j][1])){
 					$parameterSetter2 .= "Number";
 				}
-				$queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value){
+				$queryByField .= "	public function queryBy".getClazzName($tab[$j][0])."(\$value, \$single = false){
 		\$sql = 'SELECT * FROM ".$tableName." WHERE ".$tab[$j][0]." = ?';
 		\$sqlQuery = new SqlQuery(\$sql);
 		\$sqlQuery->set".$parameterSetter2."(\$value);
+		if (\$single === true)
+			return \$this->getRow(\$sqlQuery);
+		else
 		return \$this->getList(\$sqlQuery);
 	}\n\n";
 				$deleteByField .= "	public function deleteBy".getClazzName($tab[$j][0])."(\$value){
@@ -451,7 +460,7 @@ function generateIDAOObjects($ret){
 				}else{
 					$parameterSetter .= "\t\t".'$sqlQuery->set($'.getVarName($tab[$j][0]).');'."\n";
 				}
-				$queryByField .= "\tpublic function queryBy".getClazzName($tab[$j][0])."(\$value);\n\n";
+				$queryByField .= "\tpublic function queryBy".getClazzName($tab[$j][0])."(\$value, \$single);\n\n";
 				$deleteByField .= "\tpublic function deleteBy".getClazzName($tab[$j][0])."(\$value);\n\n";
 			}
 			$readRow .= "\t\t\$".getVarName($tableName)."->".getVarNameWithS($tab[$j][0])." = \$row['".$tab[$j][0]."'];\n";
@@ -465,7 +474,7 @@ function generateIDAOObjects($ret){
 		}else{			
 			$template = new Template('templates/IDAO_with_complex_pk.tpl');
             foreach($pks as $pk){
-                $queryByField .= "\tpublic function queryBy".getClazzName($pk)."(\$value);\n\n";
+                $queryByField .= "\tpublic function queryBy".getClazzName($pk)."(\$value,\$single);\n\n";
                 $deleteByField .= "\tpublic function deleteBy".getClazzName($pk)."(\$value);\n\n";
             }
 		}
