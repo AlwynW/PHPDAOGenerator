@@ -533,7 +533,7 @@ function generateIDAOObjects($ret){
 
 
 function getFields($table){
-	$sql = 'DESC '.$table;
+	$sql = 'DESC `'.$table.'`';
 	return QueryExecutor::execute(new SqlQuery($sql));
 }
 
