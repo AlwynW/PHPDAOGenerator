@@ -89,6 +89,23 @@ class ${dao_clazz_name}DAO implements ${idao_clazz_name}DAO{
 
 ${queryByFieldFunctions}
 ${deleteByFieldFunctions}
+			
+	/**
+	 * Get number of rows
+	 */
+	 public function numRows($where=false) {
+		$sql = 'SELECT COUNT(*) as total from ${table_name}';
+		
+		if ($where !== false){
+			$whereArr = array();
+			foreach($where as $clause => $val) {
+				$whereArr[] = $clause.'=\''.$val.'\'';
+			}
+			$sql.=' where '.implode(',',$whereArr);
+		}
+		$sqlQuery = new SqlQuery($sql);
+		return $this->querySingleResult($sqlQuery);
+	 }
 	
 	/**
 	 * Read row
