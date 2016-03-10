@@ -28,22 +28,19 @@ Vanilla version
 ---------------------
 1. Include DAOFactory and the necessary classes by including include_dao.php
 2. Create a new DAOFactory instance
-```
-#!php
+```php
 $factory = new DAOFactory();
 ```
 3. Load the necessary DAO/DTO classes for a particular table
-```
-#!php
+```php
 $factory->load('TableName');
 ```
 4. Run queries on a particular table by accessing it's DAO and calling functions
-```
-#!php
+```php
 $items = $factory->getTableNameDAO()->queryAll();
 ```
 5. List of functions:
-
+```php
 a. load($primaryKeys, ...)
 b. queryAll()
 c. queryAllOrderBy($column)
@@ -53,7 +50,7 @@ f. clean()
 g. queryByFieldName($value, $single) where FieldName is the name of the field and $value is the clause for querying
 h. deleteByFieldName($value) where FieldName is the name of the field and $value is the clause for querying
 i. numRows($fieldName, $where)
-
+```
 6. Use the MysqlExt classes to add additional functions to the DAO classes. They are stored in mysql/ext and will not be overwritten by the generator
 
 Usage CodeIgniter version:
