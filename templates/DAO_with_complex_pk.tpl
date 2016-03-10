@@ -98,6 +98,7 @@ ${deleteByFieldFunctions}
 		$sql = 'SELECT COUNT(*) as total from ${table_name}';
 		
 		if ($where !== false){
+			$sql.=' where ';
 			$whereArr = array();
 			foreach($where as $clause => $val) {
 				$whereArr[] = $clause.'=\''.$val.'\'';

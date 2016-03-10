@@ -97,6 +97,7 @@ ${deleteByFieldFunctions}
 		$sql = 'SELECT COUNT(*) as total from ${table_name}';
 		
 		if ($where !== false){
+			$sql.=' where ';
 			$whereArr = array();
 			foreach($where as $clause => $val) {
 				$whereArr[] = $clause.'=\''.$val.'\'';
@@ -132,8 +133,8 @@ ${deleteByFieldFunctions}
 	 *
 	 * @return ${dao_clazz_name} 
 	 */
-	protected function getRow($sqlQuery){
 		$tab = QueryExecutor::execute($sqlQuery);
+	protected function getRow($sqlQuery){
 		if(count($tab)==0){
 			return null;
 		}
