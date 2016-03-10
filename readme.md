@@ -1,8 +1,8 @@
 PHP DAO Generator:
 ====================
-This project is a fork of the excellent work done by http://phpdao.com/ 
-It adds more features and is written to support mysqli rather than only mysql.
-The API changed a bit because of it's compatibility with CodeIgniter, our primary framework when it comes down to PHP development.
+This project is a fork of the excellent work done by http://phpdao.com/  
+It adds more features and is written to support mysqli instead of mysql.  
+The API changed a bit because of it's compatibility with CodeIgniter, our primary framework when it comes down to PHP development.  
 A vanilla version is still available but the API as explained on phpdao.com is no longer valid. The main difference is the fact that the DAOFactory is now instance based rather than calling all functions via a static interface.
 
 Extra features:
@@ -58,26 +58,27 @@ Usage CodeIgniter version:
 0. Place all files in app's model directory. Put DAOFactory.php in root of model directory
 
 1. Load model (or autoload)
-
+```php
 $this->load->model('DAOFactory');
-
+```
 2. Load the necessary DTO/DAO file (depend on which table(s) you want to approach)
-
+```php
 $this->DAOFactory->load('TableName');
 or 
 $this->DAOFactory->loadAll($arrayOfTableNames);
-
+```
 3. Use DAOFactory like you would normally do, call DAO object and execute functions
-
+```php
 $this->DAOFactory->getTableNameDAO();
-
+```
 Using Transactions:
 ---------------------
-a. Start a new transaction
-
+1. Start a new transaction
+```php
 $t = new Transaction();
-
-b. Do all kind of db operations
-c. Commit or rollback
-
+```
+2. Do all kind of db operations
+3. Commit or rollback
+```php
 $t->commit(); or $t->rollback();
+```
