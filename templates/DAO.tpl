@@ -133,8 +133,9 @@ ${deleteByFieldFunctions}
 	 *
 	 * @return ${dao_clazz_name} 
 	 */
-		$tab = QueryExecutor::execute($sqlQuery);
 	protected function getRow($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+
 		if(count($tab)==0){
 			return null;
 		}
