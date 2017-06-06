@@ -11,7 +11,7 @@ class ${dao_clazz_name}DAO implements ${idao_clazz_name}DAO{
 	 * Get Domain object by primary key
 	 *
 	 * @param String $id primary key
-	 * @return ${dao_clazz_name} 
+	 * @return ${domain_clazz_name}
 	 */
 	public function load(${pks}){
 		$sql = 'SELECT * FROM ${table_name} WHERE ${pk_where}';
@@ -54,7 +54,7 @@ class ${dao_clazz_name}DAO implements ${idao_clazz_name}DAO{
 	/**
  	 * Insert record to table
  	 *
- 	 * @param ${dao_clazz_name} ${var_name}
+ 	 * @param ${domain_clazz_name} ${var_name}
  	 */
 	public function insert($${var_name}){
 		$sql = 'INSERT INTO ${table_name} (${insert_fields2}) VALUES (${question_marks2})';
@@ -69,7 +69,7 @@ class ${dao_clazz_name}DAO implements ${idao_clazz_name}DAO{
 	/**
  	 * Update record in table
  	 *
- 	 * @param ${dao_clazz_name} ${var_name}
+ 	 * @param ${domain_clazz_name} ${var_name}
  	 */
 	public function update($${var_name}){
 		$sql = 'UPDATE ${table_name} SET ${update_fields} WHERE ${pk_where}';
@@ -112,7 +112,7 @@ ${deleteByFieldFunctions}
 	/**
 	 * Read row
 	 *
-	 * @return ${dao_clazz_name} 
+	 * @return ${domain_clazz_name}
 	 */
 	protected function readRow($row){
 		$${var_name} = new ${domain_clazz_name}();
@@ -132,7 +132,7 @@ ${deleteByFieldFunctions}
 	/**
 	 * Get row
 	 *
-	 * @return ${dao_clazz_name} 
+	 * @return ${domain_clazz_name}
 	 */
 	protected function getRow($sqlQuery){
 		$tab = QueryExecutor::execute($sqlQuery);

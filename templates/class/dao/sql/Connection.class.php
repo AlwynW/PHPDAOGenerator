@@ -8,7 +8,7 @@
 class Connection{
 	private $connection;
 
-	public function Connection(){
+	public function __construct(){
 		$this->connection = ConnectionFactory::getConnection();
 	}
 

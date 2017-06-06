@@ -10,7 +10,7 @@ class ConnectionFactory{
 	/**
 	 * Zwrocenie polaczenia
 	 *
-	 * @return polaczenie
+	 * @return mysqli
 	 */
 	static public function getConnection(){
 		$conn = new mysqli(ConnectionProperty::getHost(), ConnectionProperty::getUser(), ConnectionProperty::getPassword(), ConnectionProperty::getDatabase());
@@ -23,7 +23,7 @@ class ConnectionFactory{
 	/**
 	 * Zamkniecie polaczenia
 	 *
-	 * @param connection polaczenie do bazy
+	 * @param connection
 	 */
 	static public function close($connection){
 		$connection->close();

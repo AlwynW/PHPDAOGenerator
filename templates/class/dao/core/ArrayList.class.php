@@ -9,7 +9,7 @@ class ArrayList{
 	private $tab;
 	private $size;
 
-	public function ArrayList(){
+	public function __construct(){
 		$this->tab = array();
 		$this->size=0;
 	}

@@ -15,7 +15,7 @@ class SqlQuery{
 	 *
 	 * @param String $txt zapytanie sql
 	 */
-	function SqlQuery($txt){
+	function __construct($txt){
 		$this->txt = $txt;
 	}
 

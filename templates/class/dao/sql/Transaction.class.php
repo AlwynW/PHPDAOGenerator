@@ -10,7 +10,7 @@ class Transaction{
 
 	private $connection;
 
-	public function Transaction(){
+	public function __construct(){
 		$this->connection = new Connection();
 		if(!Transaction::$transactions){
 			Transaction::$transactions = new ArrayList();
